@@ -1,0 +1,27 @@
+<h1>Convertitore di Voti</h1>
+
+<p>
+    <label class="label">Immetti il voto in trentesimi: </label>
+    <input id="voto" type="text" name="voto" [(ngModel)]="votoIn30mi" />
+    <button type="button" (click)="converti()">Converti</button>
+    <span class="errore">{{ errore }}</span>
+</p>
+<p>
+    <strong>Voto in centodecimi: </strong>
+    <span id="risultato">{{ votoIn110mi }}</span>
+</p>
+
+<div *ngIf="haConversioni">
+    <strong>Conversioni effettuate:</strong>
+    <ul>
+        <li *ngFor="let conversione of storiaConversioni">
+            {{ conversione }}
+        </li>
+    </ul>
+</div>
+
+<hr>
+<p class="piccolo">
+    Corso di Laurea in Informatica - Universit&agrave; degli Studi della Basilicata <br />
+    Insegnamento di Programmazione a Oggetti II
+</p>
