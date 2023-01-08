@@ -5,6 +5,9 @@ These apps have been developed for teaching purposes. They are used in our cours
 ## Converter
 A simple converter of university grades (for italian grades in the scale of 18-30, 66-110).
 
+## Number Guess Game
+A "Number Guess" game for Android. Guess a random number between 1 and 100 chosen by the system.
+
 
 ### Credits
 
