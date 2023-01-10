@@ -5,7 +5,8 @@ import { NuovaPartitaComponent } from './components/nuova-partita/nuova-partita.
 import { PartitaEsistenteGuard } from './guard/partita-esistente.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/nuova', pathMatch: 'full' },
+  // { path: '', redirectTo: '/nuova', pathMatch: 'full' },
+  { path: '', redirectTo: '/gioca', pathMatch: 'full' },
   { path: 'nuova', component: NuovaPartitaComponent },
   { path: 'gioca', component: GiocaPartitaComponent, canActivate: [PartitaEsistenteGuard] },
 ];

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Partita } from '../model/partita';
 import { C } from './c';
 
 @Injectable({
@@ -8,7 +9,9 @@ export class ModelloService {
 
   private beans: Map<C, any> = new Map<C, any>();
 
-  constructor() {  }
+  constructor() {
+    this.beans.set(C.PARTITA, new Partita('John'));
+  }
 
   getBean<T>(key: C): T | undefined {
     return this.beans.get(key);

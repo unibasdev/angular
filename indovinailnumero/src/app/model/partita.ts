@@ -1,5 +1,6 @@
 export class Partita {
 
+  id?: number = undefined;
   numeroDaIndovinare: number;
   numeroDiTentativi: number = 0;
   trovato: boolean = false;

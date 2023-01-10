@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NuovaPartitaComponent } from './components/nuova-partita/nuova-partita.component';
 import { GiocaPartitaComponent } from './components/gioca-partita/gioca-partita.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryRepository } from './dao/in-memory-repository';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryRepository)
   ],
   providers: [],
   bootstrap: [AppComponent]
