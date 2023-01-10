@@ -1,6 +1,6 @@
 import { InMemoryDbService } from "angular-in-memory-web-api";
 
-export class InMemoryRepository implements InMemoryDbService {
+export class InMemoryRepository extends InMemoryDbService {
 
   createDb() {
     console.log('Inizializzato db');
@@ -11,13 +11,6 @@ export class InMemoryRepository implements InMemoryDbService {
       { id: 4, nome: "Mike", numeroDaIndovinare: 75, numeroDiTentativi: 2, trovato: true }
     ];
     return { partite };
-  }
-
-  protected genId<T extends {
-    id: any;
-  }>(collection: T[], collectionName: string): any{
-    console.log("Devo generare l'id per la collezione " + collectionName);
-    return undefined;
   }
 
 }

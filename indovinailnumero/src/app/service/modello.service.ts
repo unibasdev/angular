@@ -10,7 +10,7 @@ export class ModelloService {
   private beans: Map<C, any> = new Map<C, any>();
 
   constructor() {
-    this.beans.set(C.PARTITA, new Partita('John'));
+    // this.beans.set(C.PARTITA, new Partita('John'));
   }
 
   getBean<T>(key: C): T | undefined {

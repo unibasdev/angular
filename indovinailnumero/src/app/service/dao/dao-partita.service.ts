@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { Partita } from '../model/partita';
+import { Partita } from '../../model/partita';
 
 @Injectable({
   providedIn: 'root'

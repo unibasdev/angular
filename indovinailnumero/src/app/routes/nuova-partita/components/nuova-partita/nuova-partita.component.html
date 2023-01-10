@@ -1,9 +1,9 @@
 <h3>Vogliamo fare una partita?</h3>
-<form (submit)="iniziaGioco()" #formGioca="ngForm">
+<form (submit)="iniziaGioco()">
   <div class="mb-3">
     <label class="form-label">Inserisci il tuo nome per cominciare a giocare:</label>
-    <input class="form-control" id="nome" name="nome" [(ngModel)]="nome" required="true" #campoNome="ngModel" />
+    <input class="form-control" id="nome" name="nome" [formControl]="campoNome" />
     <span class="form-text text-danger" *ngIf="campoNome.invalid && campoNome.touched">Il nome non pu&ograve; essere vuoto</span>
   </div>
-  <button class="btn btn-primary" type="submit" [disabled]="formGioca.invalid">Inizia</button>
+  <button class="btn btn-primary" type="submit" [disabled]="campoNome.invalid">Inizia</button>
 </form>
