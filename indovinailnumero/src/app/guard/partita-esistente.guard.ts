@@ -14,9 +14,8 @@ export class PartitaEsistenteGuard implements CanActivate {
     private modello: ModelloService) {
   }
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate (route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
+                Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!this.modello.getBean<Partita>(C.PARTITA)) {
       this.router.navigate(['/nuova']);
       return false;
