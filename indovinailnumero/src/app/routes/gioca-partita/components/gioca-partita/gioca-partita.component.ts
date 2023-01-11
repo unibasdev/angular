@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Partita } from 'src/app/model/partita';
-import { Statistiche } from 'src/app/model/statistiche';
 import { C } from 'src/app/service/c';
 import { DaoPartitaService } from 'src/app/service/dao/dao-partita.service';
 import { ModelloService } from 'src/app/service/modello.service';
@@ -15,7 +14,6 @@ export class GiocaPartitaComponent {
 
   campoTentativo = new FormControl<number>(50, [Validators.required, Validators.min(1), Validators.max(100)]);
   partitaInterrotta: boolean = false;
-  statistiche?: Statistiche;
 
   constructor(private modello: ModelloService, private daoPartita: DaoPartitaService) {
   }
