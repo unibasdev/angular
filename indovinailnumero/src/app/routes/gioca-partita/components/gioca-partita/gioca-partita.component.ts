@@ -26,16 +26,19 @@ export class GiocaPartitaComponent {
     console.log('Controllo il tentativo', this.campoTentativo.value)
     this.partita.gestisciTentativo(this.campoTentativo.value!);
     if (this.partita.trovato) {
+      this.campoTentativo.disable();
       this.salvaRisultatoPartita();
     }
   }
 
   interrompiPartita(): void {
     this.partitaInterrotta = true;
+    this.campoTentativo.disable();
     this.salvaRisultatoPartita();
   }
 
   nuovaPartita(): void {
+    this.campoTentativo.enable();
     this.partitaInterrotta = false;
     this.campoTentativo.setValue(50);
     this.modello.putBean(C.PARTITA, new Partita(this.partita.nome));

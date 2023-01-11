@@ -1,3 +1,4 @@
 export enum C {
-  PARTITA
+  PARTITA,
+  PARTITE
 }

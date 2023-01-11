@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Partita } from 'src/app/model/partita';
+import { C } from 'src/app/service/c';
 import { DaoPartitaService } from 'src/app/service/dao/dao-partita.service';
+import { ModelloService } from 'src/app/service/modello.service';
 
 @Component({
   selector: 'app-lista-partite',
@@ -9,14 +11,16 @@ import { DaoPartitaService } from 'src/app/service/dao/dao-partita.service';
 })
 export class ListaPartiteComponent implements OnInit {
 
-  public partite?: Partita[];
-
-  constructor(private daoPartita: DaoPartitaService){}
+  constructor(private modello: ModelloService,  private daoPartita: DaoPartitaService){}
 
   ngOnInit(): void {
     this.daoPartita.findAll()
-      .then(result => this.partite = result)
+      .then(result => this.modello.putBean(C.PARTITE, result))
       .catch(error => console.error("Errore durante la lettura delle partite"));
+  }
+
+  get partite(): Partita[] | undefined {
+    return this.modello.getBean(C.PARTITE);
   }
 
 }
