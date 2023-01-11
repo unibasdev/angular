@@ -1,1 +1,12 @@
-<p>partita works!</p>
+<div class="partita" [ngClass]="partita?.trovato ? 'trovato':'non-trovato'">
+  <h5>
+    Partita
+    <span *ngIf="partita?.trovato">vinta</span>
+    <span *ngIf="!partita?.trovato">persa</span>
+    da {{partita?.nome}}
+  </h5>
+  <p>
+    <em>in {{partita?.numeroDiTentativi}} tentativi</em><br />
+    Numero segreto: {{partita?.numeroDaIndovinare}}
+  </p>
+</div>

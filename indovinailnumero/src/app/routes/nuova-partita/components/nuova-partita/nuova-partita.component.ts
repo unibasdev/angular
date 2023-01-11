@@ -8,7 +8,7 @@ import { ModelloService } from 'src/app/service/modello.service';
 @Component({
   selector: 'app-nuova-partita',
   templateUrl: './nuova-partita.component.html',
-  styleUrls: ['./nuova-partita.component.scss']
+  styleUrls: ['./nuova-partita.component.css']
 })
 export class NuovaPartitaComponent {
 

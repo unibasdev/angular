@@ -1,0 +1,19 @@
+.partita {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+.partita.trovato {
+  border-color: rgb(4, 216, 4);
+}
+.partita.non-trovato {
+  border-color: rgb(251, 24, 24);
+}
+.trovato h5 {
+  color: rgb(4, 216, 4);
+}
+.non-trovato h5 {
+  color: rgb(251, 24, 24);
+}
