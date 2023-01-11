@@ -9,7 +9,7 @@ import { ModelloService } from 'src/app/service/modello.service';
 @Component({
   selector: 'app-gioca-partita',
   templateUrl: './gioca-partita.component.html',
-  styleUrls: ['./gioca-partita.component.scss']
+  styleUrls: ['./gioca-partita.component.css']
 })
 export class GiocaPartitaComponent {
 
