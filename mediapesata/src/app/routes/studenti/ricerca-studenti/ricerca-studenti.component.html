@@ -4,19 +4,19 @@
     <div class="card-text">
       <form (submit)="ricercaStudenti()" [formGroup]="formRicerca">
         <div class="row">
-          <div class="col-4">
+          <div class="col-12 col-lg-4">
             <label class="form-text">Nome</label>
             <input class="form-control" type="text" formControlName="nome" />
           </div>
-          <div class="col-4">
+          <div class="col-12 col-lg-4">
             <label class="form-text">Cognome</label>
             <input class="form-control" type="text" formControlName="cognome" />
           </div>
-          <div class="col-2">
+          <div class="col-12 col-lg-2">
             <label class="form-text">Anno di Iscrizione</label>
             <input class="form-control" type="number" formControlName="annoIscrizione" />
           </div>
-          <div class="col-2">
+          <div class="col-12 col-lg-2">
             <label class="form-text">&nbsp;</label>
             <button class="form-control btn btn-primary" type="submit">Cerca</button>
           </div>

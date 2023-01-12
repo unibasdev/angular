@@ -6,13 +6,15 @@
         <tr>
           <th>Matricola</th><th>Cognome</th>
           <th>Nome</th>
-          <th>Anno Iscrizione</th>
+          <th>Iscrizione</th>
+          <th></th>
         </tr>
         <tr *ngFor="let studente of listaStudenti">
           <td>{{studente.matricola}}</td>
           <td>{{studente.cognome}}</td>
           <td>{{studente.nome}}</td>
           <td>{{studente.annoIscrizione}}</td>
+          <td><a routerLink="/studenti/{{studente.id}}">Dettagli</a></td>
         </tr>
       </table>
     </div>

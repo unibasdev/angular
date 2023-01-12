@@ -1,15 +1,20 @@
 <div class="form-login">
-  <h3>Media Pesata</h3>
+  <h3>
+    <img src="/assets/logo.png" class="logo" />
+    <br />Media Pesata
+  </h3>
   <form (submit)="login()" [formGroup]="formLogin">
     <div>
       <label class="form-text">Email</label>
       <input class="form-control" type="email" formControlName="email" />
-      <label class="form-text text-danger" *ngIf="campoEmail.invalid && campoEmail.touched">Il campo email dev'essere un'email valida</label>
+      <label class="form-text text-danger" *ngIf="campoEmail.invalid && campoEmail.touched">Il campo email dev'essere
+        un'email valida</label>
     </div>
     <div>
       <label class="form-text">Password</label>
       <input class="form-control" type="password" formControlName="password" />
-      <label class="form-text text-danger" *ngIf="campoPassword.invalid && campoPassword.touched">Il campo password è richiesto</label>
+      <label class="form-text text-danger" *ngIf="campoPassword.invalid && campoPassword.touched">Il campo password è
+        richiesto</label>
     </div>
     <button class="btn btn-primary bottone-login" type="submit" [disabled]="formLogin.invalid">Login</button>
   </form>
