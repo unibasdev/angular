@@ -1,9 +1,9 @@
 <h3>{{partita.nome}}, prova a indovinare il numero...</h3>
 
-<form (submit)="controllaTentativo()" class="mb-2">
+<form [formGroup]="formTentativo" (submit)="controllaTentativo()" class="mb-2">
   <div class="mb-3">
     <span class="form-text">Inserisci un numero tra 1 e 100</span>
-    <input class="form-control" id="tentativo" name="tentativo" [formControl]="campoTentativo" type="number" />
+    <input class="form-control" id="tentativo" name="tentativo" formControlName="campoTentativo" type="number" />
     <span class="form-text text-danger" *ngIf="campoTentativo.invalid && campoTentativo.touched">Il numero deve essere
       compreso tra 1 e 100</span>
   </div>
