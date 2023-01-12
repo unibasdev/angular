@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Partita } from 'src/app/model/partita';
 import { C } from 'src/app/service/c';
 import { DaoPartitaService } from 'src/app/service/dao/dao-partita.service';
@@ -12,10 +12,17 @@ import { ModelloService } from 'src/app/service/modello.service';
 })
 export class GiocaPartitaComponent {
 
-  campoTentativo = new FormControl<number>(50, [Validators.required, Validators.min(1), Validators.max(100)]);
+  formTentativo = new FormGroup({
+    campoTentativo: new FormControl<number>(50, [Validators.required, Validators.min(1), Validators.max(100)])
+  });
+
   partitaInterrotta: boolean = false;
 
   constructor(private modello: ModelloService, private daoPartita: DaoPartitaService) {
+  }
+
+  get campoTentativo() {
+    return this.formTentativo.get('campoTentativo')!;
   }
 
   get partita(): Partita {

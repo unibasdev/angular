@@ -8,7 +8,7 @@ import { ModelloService } from '../service/modello.service';
 @Injectable({
   providedIn: 'root'
 })
-export class PartitaEsistenteGuard implements CanActivate {
+export class PartitaInCorsoGuard implements CanActivate {
 
   constructor(private router: Router,
     private modello: ModelloService) {
