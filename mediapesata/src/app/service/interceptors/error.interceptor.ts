@@ -14,9 +14,13 @@ export class ErrorInterceptor implements HttpInterceptor {
       catchError(httpError => {
         console.error("Errore durante la richiesta", httpError);
         if (httpError instanceof HttpErrorResponse && httpError.error) {
-          let backendError = JSON.parse(httpError.error);
-          if (backendError['error']) {
-            httpError = backendError['error'];
+          if (httpError.error instanceof Object && httpError.error.error) {
+            httpError = httpError.error.error;
+          } else {
+            let backendError = JSON.parse(httpError.error);
+            if (backendError['error']) {
+              httpError = backendError['error'];
+            }
           }
         }
         return throwError(() => httpError);

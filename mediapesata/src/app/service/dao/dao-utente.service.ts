@@ -11,11 +11,18 @@ export class DaoUtenteService {
   constructor(private httpClient: HttpClient) { }
 
   login(email: string, password: string): Promise<string> {
+    if (environment.backendStrategy === 'MOCK') {
+      console.log('Login mock. Genero un token');
+      return Promise.resolve('token-mock');
+    }
     let apiURL = environment.backendUrl + '/utenti/login';
     return lastValueFrom(
       this.httpClient.post(apiURL, { email: email, password: password }, { responseType: 'text' })
         .pipe(
-          tap(response => console.log('Ricevuta risposta ', response)),
+          tap(response => {
+            console.log('Ricevuta risposta ', response);
+            if (!response) throw new Error("Token di autorizzazione assente");
+          })
         )
     );
   }

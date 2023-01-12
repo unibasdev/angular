@@ -1,1 +1,20 @@
-<p>lista-studenti works!</p>
+<div class="card mt-4" *ngIf="listaStudenti">
+  <div class="card-body">
+    <h5 class="card-title">Trovati {{listaStudenti.length}} studenti</h5>
+    <div class="card-text">
+      <table class="table">
+        <tr>
+          <th>Matricola</th><th>Cognome</th>
+          <th>Nome</th>
+          <th>Anno Iscrizione</th>
+        </tr>
+        <tr *ngFor="let studente of listaStudenti">
+          <td>{{studente.matricola}}</td>
+          <td>{{studente.cognome}}</td>
+          <td>{{studente.nome}}</td>
+          <td>{{studente.annoIscrizione}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

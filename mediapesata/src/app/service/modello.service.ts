@@ -44,4 +44,9 @@ export class ModelloService {
     this.beans.delete(key);
     localStorage.removeItem(C[key]);
   }
+
+  clear() {
+    this.beans.clear();
+    localStorage.clear();
+  }
 }
