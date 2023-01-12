@@ -1,0 +1,7 @@
+export enum C {
+  UTENTE,
+  //Utilita
+  CARICAMENTO,
+  MESSAGGIO_ERRORE,
+  MESSAGGIO_INFORMAZIONI
+}
