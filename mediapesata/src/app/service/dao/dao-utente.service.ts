@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, lastValueFrom, tap, throwError } from 'rxjs';
+import { catchError, EMPTY, filter, first, lastValueFrom, map, tap, throwError } from 'rxjs';
+import { Utente } from 'src/app/model/utente';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,8 +13,7 @@ export class DaoUtenteService {
 
   login(email: string, password: string): Promise<string> {
     if (environment.backendStrategy === 'MOCK') {
-      console.log('Login mock. Genero un token');
-      return Promise.resolve('token-mock');
+      return this.gestisciLoginMock(email, password);
     }
     let apiURL = environment.backendUrl + '/utenti/login';
     return lastValueFrom(
@@ -26,4 +26,19 @@ export class DaoUtenteService {
         )
     );
   }
+
+  private gestisciLoginMock(email: string, password: string): Promise<string> {
+    let apiURL = environment.backendUrl + '/utenti';
+    return lastValueFrom(this.httpClient.get<Utente[]>(apiURL).pipe(
+      map(utenti => utenti.filter(utente => { return utente.email === email; })),
+      tap(utenti => {
+        if (utenti.length === 0) throw new Error('Utente con email ' + email + ' inesistente');
+        let utente: any = utenti[0];
+        if (utente.password !== password) throw new Error('Password scorretta');
+        console.log('Utente trovato', utente);
+      }),
+      map(_ => 'mock-token')
+    ));
+  }
+
 }
