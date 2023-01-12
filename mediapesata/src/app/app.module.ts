@@ -19,6 +19,7 @@ import { LoadingInterceptor } from './service/interceptors/loading.interceptor';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RicercaStudentiComponent } from './routes/studenti/ricerca-studenti/ricerca-studenti.component';
 import { ListaStudentiComponent } from './routes/studenti/lista-studenti/lista-studenti.component';
+import { AuthTokenInterceptor as AuthTokenInterceptor } from './service/interceptors/auth-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ListaStudentiComponent } from './routes/studenti/lista-studenti/lista-s
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
+    { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

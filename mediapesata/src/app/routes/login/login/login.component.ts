@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.modello.removePersistentBean(C.UTENTE);
+    this.modello.clear();
   }
 
   get campoEmail() {

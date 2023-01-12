@@ -2,7 +2,7 @@
   <div class="card-body">
     <h5 class="card-title">Ricerca Studenti</h5>
     <div class="card-text">
-      <form action="ricercaStudenti()" [formGroup]="formRicerca">
+      <form (submit)="ricercaStudenti()" [formGroup]="formRicerca">
         <div class="row">
           <div class="col-4">
             <label class="form-text">Nome</label>
