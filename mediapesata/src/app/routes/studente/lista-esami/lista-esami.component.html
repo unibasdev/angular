@@ -1,0 +1,25 @@
+<div class="card" *ngIf="studente.esami">
+  <div class="card-body">
+    <h5 class="card-title">Esami sostenuti: {{studente.esami.length}}</h5>
+    <div class="card-text">
+      <table class="table">
+        <tr>
+          <th>Insegnamento</th>
+          <th>Voto</th>
+          <th>Lode</th>
+          <th>Crediti</th>
+          <th>Data Registrazione</th>
+        </tr>
+        <tr *ngFor="let esame of studente.esami">
+          <td>{{esame.insegnamento}}</td>
+          <td>{{esame.voto}}</td>
+          <td>{{esame.lode}}</td>
+          <td>{{esame.crediti}}</td><td>{{esame.dataRegistrazione | date: 'mediumDate'}}</td>
+          <td><a routerLink="/studenti/{{studente.id}}/esami/{{esame.id}}/edit">Modifica</a></td>
+          <td><a routerLink="/studenti/{{studente.id}}" (click)="eliminaEsame(esame)">Elimina</a></td>
+        </tr>
+      </table>
+      <button class="btn btn-primary" routerLink="/studenti/{{studente.id}}/esami/new">Aggiungi nuovo esame</button>
+    </div>
+  </div>
+</div>

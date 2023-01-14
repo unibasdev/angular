@@ -1,6 +1,7 @@
 export class Esame {
 
   public id?: number;
+  public studenteId?: number;
 
   constructor(
     public insegnamento: string,

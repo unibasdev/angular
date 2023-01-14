@@ -27,18 +27,17 @@ export class DaoUtenteService {
     );
   }
 
+  //NECESSARIO SOLO PER L'IMPLEMENTAZIONE MOCK CON INMEMORYDBSERVICE
   private gestisciLoginMock(email: string, password: string): Promise<string> {
     let apiURL = environment.backendUrl + '/utenti';
     return lastValueFrom(this.httpClient.get<Utente[]>(apiURL).pipe(
-      map(utenti => utenti.filter(utente => { return utente.email === email; })),
-      tap(utenti => {
-        if (utenti.length === 0) throw new Error('Utente con email ' + email + ' inesistente');
-        let utente: any = utenti[0];
-        if (utente.password !== password) throw new Error('Password scorretta');
-        console.log('Utente trovato', utente);
-      }),
-      map(_ => 'mock-token')
+      map(utenti => this.cercaUtente(utenti, email, password))
     ));
   }
 
+  private cercaUtente(utenti: Utente[], email: string, password: string): string{
+    let utente = utenti.find(u => u.email === email && (u as any).password === password);
+    if (!utente) throw new Error('Credenziali scorrette');
+    return 'token-mock';
+  }
 }

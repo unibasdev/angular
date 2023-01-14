@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Studente } from 'src/app/model/studente';
 import { C } from 'src/app/service/c';
+import { DaoStudenteService } from 'src/app/service/dao/dao-studente.service';
+import { MessaggiService } from 'src/app/service/messaggi.service';
 import { ModelloService } from 'src/app/service/modello.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { ModelloService } from 'src/app/service/modello.service';
   templateUrl: './lista-studenti.component.html',
   styleUrls: ['./lista-studenti.component.css']
 })
-export class ListaStudentiComponent {
+export class ListaStudentiComponent  {
 
   constructor(private modello: ModelloService) {
   }

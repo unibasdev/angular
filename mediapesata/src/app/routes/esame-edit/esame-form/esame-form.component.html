@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Dati dell'esame</h5>
+    <div class="card-text">
+      <form (submit)="salva()" [formGroup]="formEsame">
+        <div class="row">
+          <div class="col-12">
+            <label class="form-text">Insegnamento</label>
+            <input class="form-control" type="text" formControlName="insegnamento" />
+            <label class="text-danger" *ngIf="campoInsegnamento.invalid && campoInsegnamento.touched">L'insegnamento è
+              richiesto</label>
+          </div>
+          <div class="col-12 col-lg-4">
+            <label class="form-text">Voto</label>
+            <input class="form-control" type="number" formControlName="voto" />
+            <label class="text-danger" *ngIf="campoVoto.invalid && campoVoto.touched">Il voto dev'essere tra 18 e
+              30</label>
+          </div>
+          <div class="col-12 col-lg-1">
+            <label class="form-text">Lode</label>
+            <input class="form-check form-check-input" type="checkbox" />
+          </div>
+          <div class="col-12 col-lg-3">
+            <label class="form-text">Crediti</label>
+            <input class="form-control" type="number" formControlName="crediti" /><label class="text-danger"
+              *ngIf="campoCrediti.invalid && campoCrediti.touched">I crediti devono essere maggiori di zero</label>
+          </div>
+          <div class="col-12 col-lg-4">
+            <label class="form-text">Data Registrazione</label>
+            <input class="form-control" type="date" formControlName="dataRegistrazione" />
+            <label class="text-danger" *ngIf="campoDataRegistrazione.invalid && campoDataRegistrazione.touched">La data e' richiesta</label>
+          </div>
+          <div class="col-12 col-lg-2">
+            <label class="form-text">&nbsp;</label>
+            <button class="form-control btn btn-primary" type="submit" [disabled]="formEsame.invalid" *ngIf="!idEsameModificare">Crea</button>
+            <button class="form-control btn btn-primary" type="submit" [disabled]="formEsame.invalid" *ngIf="idEsameModificare">Modifica</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
