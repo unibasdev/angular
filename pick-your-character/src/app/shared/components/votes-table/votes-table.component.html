@@ -1,0 +1,25 @@
+<div *ngIf="!!votes && votes.length > 0; else messageNoVotes" class="row justify-content-left">
+  <table class="table table-striped" [class.table-dark]="isDarkMode">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">id</th>
+      <th scope="col">Person</th>
+      <th scope="col">Character</th>
+      <th scope="col">User</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vote of votes; let i = index">
+      <th scope="row">{{i}}</th>
+      <td>{{vote.id}}</td>
+      <td>{{vote.person.name}}</td>
+      <td>{{vote.character.name}} - {{vote.character.description}}</td>
+      <td>{{vote.user.firstName}}, {{vote.user.lastName}} ({{vote.user.userName}})</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #messageNoVotes>
+  <p><em>There's no votes for {{entityName}}</em></p>
+</ng-template>

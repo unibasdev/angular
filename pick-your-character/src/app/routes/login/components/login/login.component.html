@@ -1,0 +1,30 @@
+<div class="form-signin w-75 m-auto">
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <h2 class="mb-3 fw-normal text-center">Login</h2>
+    <div class="form-floating">
+      <input [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+             class="form-control" [class.text-bg-dark]="isDarkMode"
+             formControlName="username" id="username"
+             type="text"/>
+      <label for="username">Username</label>
+      <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+        <div *ngIf="f['username'].errors['required']">Username is required</div>
+      </div>
+    </div>
+    <div class="form-floating">
+      <input [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+             class="form-control" [class.text-bg-dark]="isDarkMode"
+             formControlName="password" id="password"
+             type="password"/>
+      <label for="password">Password</label>
+      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Password is required</div>
+      </div>
+    </div>
+    <div class="mt-4 text-center">
+      <button [disabled]="loading" class="btn btn-primary w-50">Login</button>
+      <!-- <a [routerLink]="['/register']" class="btn btn-link">Register</a> -->
+    </div>
+  </form>
+</div>

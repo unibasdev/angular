@@ -1,0 +1,10 @@
+<app-header></app-header>
+
+<span [style.display]="model.loading ? 'inline' : 'none'" class="loading"></span>
+
+<div class="container">
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+</div>
+
+<app-footer></app-footer>

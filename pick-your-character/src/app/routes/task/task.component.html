@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+  <ul class="nav nav-pills nav-fill">
+    <li *ngFor="let task of tasks" class="nav-item">
+      <a (click)="selectTask(task)" class="nav-link" routerLink="/task/{{task.id}}"
+         routerLinkActive="active">{{task.name}}</a>
+      <!-- <button class="btn btn-outline-dark" (click)="selectTask(task)">{{task.name}}</button> -->
+    </li>
+  </ul>
+</div>
+<div class="row justify-content-center pt-5">
+  <div class="col-md-12 text-center">
+    <h4 class="mb-3">Select a person and a character</h4>
+  </div>
+  <div class="col-md-6">
+    <div class="col-md-12 text-center">
+      <div class="text-bg-secondary p-2 mb-4"><h4 class="mb-0">Persons</h4></div>
+      <div *ngFor="let person of taskPersons">
+        <div class="row mb-2">
+          <div class="col-2 d-grid align-content-center justify-content-center">
+            <a (click)="selectPerson(person)"
+               class="nav-link"
+               data-bs-toggle="modal"
+               data-bs-target="#personModal">
+              <i class="fa fa-info-circle"></i>
+            </a>
+          </div>
+          <div class="col-10 d-grid">
+            <button (click)="personForVote = person"
+                    [class.active]="person.id === personForVote?.id"
+                    [class.btn-primary]="person.id === personForVote?.id"
+                    [class.btn-outline-dark]="!isDarkMode && person.id != personForVote?.id"
+                    [class.btn-outline-light]="isDarkMode && person.id != personForVote?.id"
+                    class="btn btn-block">
+              {{person.name}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="col-md-12 text-center">
+      <div class="text-bg-secondary p-2 mb-4"><h4 class="mb-0">Characters</h4></div>
+      <div *ngFor="let character of taskCharacters">
+        <div class="row mb-2">
+          <div class="col-10 d-grid">
+            <button (click)="characterForVote = character"
+                    [class.active]="character.id === characterForVote?.id"
+                    [class.btn-primary]="character.id === characterForVote?.id"
+                    [class.btn-outline-dark]="!isDarkMode && character.id != characterForVote?.id"
+                    [class.btn-outline-light]="isDarkMode && character.id != characterForVote?.id"
+                    class="btn btn-block">
+              {{character.name}}
+            </button>
+          </div>
+          <div class="col-2 d-grid align-content-center justify-content-center">
+            <a (click)="selectCharacter(character)" class="nav-link"
+               data-bs-toggle="modal"
+               data-bs-target="#characterModal">
+              <i class="fa fa-info-circle"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 text-center">
+    <button (click)="saveVote()" *ngIf="personForVote && characterForVote"
+            class="btn btn-outline-primary btn-block mt-4">Vote
+    </button>
+  </div>
+</div>
+
+<div class="modal modal-lg fade" id="personModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" [class.text-bg-dark]="isDarkMode" *ngIf="selectedTask && selectedPerson">
+      <app-person (close)="clearModalData()"></app-person>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-lg fade" id="characterModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" [class.text-bg-dark]="isDarkMode" *ngIf="selectedTask && selectedCharacter">
+      <app-character (close)="clearModalData()"></app-character>
+    </div>
+  </div>
+</div>
