@@ -56,13 +56,13 @@ export class DaoStudenteService {
 
   //NECESSARIO SOLO PER L'IMPLEMENTAZIONE MOCK CON INMEMORYDBSERVICE
   private gestisciGetMediaPesataMock(idStudente: number): Promise<number> {
-    return lastValueFrom(this.httpClient.get<Studente>(environment.backendUrl + '/studenti/' + idStudente)
+    return lastValueFrom(this.httpClient.get<Esame[]>(environment.backendUrl + '/esami?studenteId=' + idStudente)
       .pipe(
-        map(studente => {
-          if (!studente.esami) return 0.0;
+        map(esami => {
+          if (!esami) return 0.0;
           let sommaVotiPesati = 0;
           let sommaCrediti = 0;
-          for (let esame of studente.esami) {
+          for (let esame of esami) {
             sommaVotiPesati += esame.voto * esame.crediti;
             sommaCrediti += esame.crediti;
           }

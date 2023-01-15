@@ -13,19 +13,22 @@ import { ModelloService } from 'src/app/service/modello.service';
 })
 export class DettaglioStudenteComponent implements OnInit {
 
-  public mediaPesata?: number;
-
   constructor(private modello: ModelloService,
     private daoStudenti: DaoStudenteService,
     private messaggi: MessaggiService) { }
 
   ngOnInit(): void {
+    console.log("Inizializzo il componente DettaglioStudenteComponent.");
     this.daoStudenti.getMediaPesata(this.studente.id!)
-      .then(result => this.mediaPesata = result)
+      .then(result => this.modello.putBean(C.MEDIA_PESATA, result))
       .catch(_ => this.messaggi.mostraMessaggioErrore('Impossibile ottenere la media pesata dello studente'));;
   }
 
   get studente(): Studente {
     return this.modello.getBean(C.STUDENTE)!;
+  }
+
+  get mediaPesata(): number {
+    return this.modello.getBean(C.MEDIA_PESATA)!;
   }
 }

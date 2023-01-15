@@ -33,6 +33,12 @@ export class ListaEsamiComponent implements OnInit {
       .catch(errore => this.messaggi.mostraMessaggioErrore('Impossibile leggere gli esami dello studente: ' + errore));
   }
 
+  private aggiornaMediaPesata(studente: Studente) {
+    this.daoStudente.getMediaPesata(this.studente.id!)
+      .then(result => this.modello.putBean(C.MEDIA_PESATA, result))
+      .catch(_ => this.messaggi.mostraMessaggioErrore('Impossibile ottenere la media pesata dello studente'));
+  }
+
   get studente(): Studente {
     return this.modello.getBean(C.STUDENTE)!;
   }
@@ -46,6 +52,7 @@ export class ListaEsamiComponent implements OnInit {
         //   this.daoStudente.update(this.studente);
         // }
         this.aggiornaListaEsami(this.studente);
+        this.aggiornaMediaPesata(this.studente);
       })
       .catch(errore => this.messaggi.mostraMessaggioInformazioni('Impossibile eliminare l\'esame: ' + errore))
   }

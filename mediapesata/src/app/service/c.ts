@@ -2,6 +2,7 @@ export enum C {
   UTENTE,
   LISTA_STUDENTI,
   STUDENTE,
+  MEDIA_PESATA,
   ESAME,
   //Utilita
   CARICAMENTO,
