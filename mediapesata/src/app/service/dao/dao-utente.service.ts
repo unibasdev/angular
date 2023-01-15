@@ -35,7 +35,7 @@ export class DaoUtenteService {
     ));
   }
 
-  private cercaUtente(utenti: Utente[], email: string, password: string): string{
+  private cercaUtente(utenti: Utente[], email: string, password: string): string {
     let utente = utenti.find(u => u.email === email && (u as any).password === password);
     if (!utente) throw new Error('Credenziali scorrette');
     return 'token-mock';

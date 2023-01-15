@@ -5,4 +5,6 @@ footer{
   background-color: var(--bs-primary);
   width: 100%;
   color: white;
+  font-size: 0.9em;
+  font-style: italic;
 }

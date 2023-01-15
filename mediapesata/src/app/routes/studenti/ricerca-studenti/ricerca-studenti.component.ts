@@ -28,8 +28,8 @@ export class RicercaStudentiComponent {
       this.formRicerca.get('nome')!.value,
       this.formRicerca.get('annoIscrizione')!.value
     )
-      .then(studenti => this.modello.putBean(C.LISTA_STUDENTI, studenti))
-      .catch(error => this.messaggi.mostraMessaggioErrore(error))
+    .then(studenti => this.modello.putBean(C.LISTA_STUDENTI, studenti))
+    .catch(error => this.messaggi.mostraMessaggioErrore(error))
   }
 
 }

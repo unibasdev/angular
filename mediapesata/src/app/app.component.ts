@@ -6,9 +6,8 @@ import { Component, ViewContainerRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mediapesata';
 
-  constructor(public viewContainerRef: ViewContainerRef
-  ) {
-  }
+  // Il ViewContainerRef viene usato in altri componenti
+  constructor(public viewContainerRef: ViewContainerRef) {}
+
 }
