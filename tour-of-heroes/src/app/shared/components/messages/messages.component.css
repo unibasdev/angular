@@ -1,0 +1,67 @@
+.messages {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  min-width: 30ch;
+  background-color: var(--bg-clr);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: -2px -2px 4px 0px rgba(190, 190, 190, 0.51);
+}
+
+.messages__title {
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-clr);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.messages__action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.material-symbols-outlined {
+  line-height: 1;
+}
+
+.button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: grid;
+  place-content: center;
+  outline: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.clear {
+  color: red;
+}
+
+.messages__content {
+  padding: 1rem 0.5rem;
+  max-height: 120px;
+  overflow: auto;
+  transition: all 150ms;
+}
+
+.messages__content--close {
+  padding: 0 0.5rem;
+  max-height: 0;
+}
+
+.messages__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+}
+

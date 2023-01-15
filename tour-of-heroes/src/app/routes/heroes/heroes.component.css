@@ -1,0 +1,85 @@
+/* HeroesComponent's private CSS styles */
+.add-hero {
+  padding: 1rem 0.5rem;
+  margin-bottom: 2em;
+  border-radius: 2px;
+  box-shadow: 0 0 8px 1px var(--bg-clr), 0 2px 2px var(--bg-clr);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-with-label {
+  flex-grow: 1;
+}
+
+.input {
+  text-align: start;
+}
+
+.heroes-table {
+  border-collapse: collapse;
+  transition: all 150ms;
+}
+
+.heroes-table * {
+  transition: all 150ms;
+}
+
+.heroes-table th:last-child {
+  width: 4rem;
+}
+
+.heroes-table td, .heroes-table th {
+  padding: 0.35rem;
+}
+
+.heroes-table thead tr {
+  color: white;
+  border: none;
+  border-color: var(--primary-clr);
+  background-color: var(--primary-clr);
+}
+
+.heroes-table th {
+  text-align: start;
+}
+
+.heroes-table tbody tr {
+  cursor: pointer;
+}
+
+.heroes-table tbody tr:hover {
+  background-color: var(--bg-clr);
+}
+
+.heroes-table tbody tr td:nth-child(2) {
+  font-weight: bold;
+}
+
+.remove-btn {
+  padding: 0.25rem 0.35rem;
+  border: none;
+  border-radius: 100px;
+  background: transparent;
+  color: #b90000;
+  line-height: 1;
+  transition: all 150ms;
+}
+
+.remove-btn:hover {
+  translate: 0 -2px;
+  background: #b90000;
+  color: white;
+  box-shadow: 0 0 2px #b90000;
+}
+
+.remove-btn:active {
+  translate: 0;
+  box-shadow: none;
+  filter: brightness(1.3);
+}
+
+.remove-btn span {
+  font-size: 1.25rem;
+}

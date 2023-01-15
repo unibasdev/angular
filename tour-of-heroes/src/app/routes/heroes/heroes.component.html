@@ -1,0 +1,51 @@
+<div *ngIf="isLoaded; else loading" class="container container--column">
+
+  <h2 class="page-title">My Heroes</h2>
+
+  <form class="add-hero" (submit)="addHero(); heroName=''">
+    <div class="input-with-label">
+      <label class="label">Hero name:</label>
+      <input class="input" [(ngModel)]="heroName" name="name" appBorderFocus/>
+    </div>
+
+    <button type="submit" class="material-symbols-outlined btn">add</button>
+  </form>
+
+  <table class="heroes-table">
+    <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          Name
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" (click)="onSelect(hero)">
+        <td>
+          {{hero.id}}
+        </td>
+        <td>
+          {{hero.name}}
+        </td>
+        <td>
+          <button class="remove-btn" (click)="$event.stopPropagation(); deleteHero(hero)">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <span>Loading...</span> <img
+    src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+  </div>
+</ng-template>
