@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Esame } from 'src/app/model/esame';
 import { Studente } from 'src/app/model/studente';
 import { C } from 'src/app/service/c';
@@ -8,7 +8,6 @@ import { DaoEsameService } from 'src/app/service/dao/dao-esame.service';
 import { DaoStudenteService } from 'src/app/service/dao/dao-studente.service';
 import { MessaggiService } from 'src/app/service/messaggi.service';
 import { ModelloService } from 'src/app/service/modello.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-esame-form',
@@ -25,7 +24,15 @@ export class EsameFormComponent implements OnInit {
     crediti: new FormControl<number | null>(null, [Validators.required, Validators.min(0)]),
     lode: new FormControl<boolean>(false),
     dataRegistrazione: new FormControl<Date | null>(null, Validators.required),
-  });
+  }, [this.validatoreLode()]);
+
+  public validatoreLode(): ValidatorFn {
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      const voto: number = formGroup.get('voto')!.value;
+      const lode: boolean = formGroup.get('lode')!.value;
+      return (lode === true && voto !== 30) ? { 'lode-invalida': true } : null;
+    };
+  }
 
   constructor(private modello: ModelloService,
     private daoEsame: DaoEsameService,
@@ -51,7 +58,7 @@ export class EsameFormComponent implements OnInit {
     const nuovoEsame = new Esame(
       this.campoInsegnamento.value!, this.campoVoto.value!,
       this.campoLode.value!, this.campoCrediti.value!, this.campoDataRegistrazione.value!);
-      nuovoEsame.studenteId = this.studente.id!;
+    nuovoEsame.studenteId = this.studente.id!;
     if (this.idEsameModificare) {
       nuovoEsame.id = this.idEsameModificare;
       this.daoEsame.update(nuovoEsame)
