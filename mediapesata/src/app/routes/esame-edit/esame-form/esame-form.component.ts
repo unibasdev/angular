@@ -57,11 +57,6 @@ export class EsameFormComponent implements OnInit {
       this.daoEsame.update(nuovoEsame)
         .then(_ => {
           this.messaggi.mostraMessaggioInformazioni("Esame modificato con successo");
-          // if (environment.backendStrategy === 'MOCK') {
-          //   this.studente.esami = this.studente.esami.filter(e => e.id !== this.idEsameModificare);
-          //   this.studente.esami.push(nuovoEsame);
-          //   this.daoStudente.update(this.studente);
-          // }
           this.router.navigate(['/studenti/' + this.studente.id!]);
         })
         .catch(errore => this.messaggi.mostraMessaggioErrore("Errore durante il salvataggio dei dati: " + errore));
@@ -71,10 +66,6 @@ export class EsameFormComponent implements OnInit {
       this.daoEsame.save(nuovoEsame)
         .then(_ => {
           this.messaggi.mostraMessaggioInformazioni("Esame salvato con successo");
-          // if (environment.backendStrategy === 'MOCK') {
-          //   this.studente.esami.push(nuovoEsame);
-          //   this.daoStudente.update(this.studente);
-          // }
           this.router.navigate(['/studenti/' + this.studente.id!]);
         })
         .catch(errore => this.messaggi.mostraMessaggioErrore("Errore durante il salvataggio dei dati: " + errore));

@@ -14,7 +14,9 @@ export class DettaglioStudenteComponent implements OnInit {
 
   constructor(private modello: ModelloService,
     private daoStudenti: DaoStudenteService,
-    private messaggi: MessaggiService) { }
+    private messaggi: MessaggiService) {
+    this.modello.removeBean(C.MEDIA_PESATA);
+  }
 
   ngOnInit(): void {
     console.log("Inizializzo il componente DettaglioStudenteComponent.");

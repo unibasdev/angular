@@ -71,9 +71,6 @@ export class DaoStudenteService {
   }
 
   private gestisciGetEsamiStudentiMock(idStudente: number): Promise<Esame[]> {
-    // let apiURL = environment.backendUrl + '/studenti/' + idStudente;
-    // return lastValueFrom(this.httpClient.get<Studente>(apiURL)
-    //   .pipe(map(studente => studente.esami)));
     let apiURL = environment.backendUrl + '/esami?studenteId=' + idStudente;
     return lastValueFrom(this.httpClient.get<Esame[]>(apiURL));
   }
