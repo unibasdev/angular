@@ -12,7 +12,7 @@
 </p>
 
 <div *ngIf="haConversioni">
-    <strong>Conversioni effettuate:</strong>
+    <strong>{{ 'Conversioni effettuate:' | uppercase }} </strong>
     <ul>
         <li *ngFor="let conversione of storiaConversioni">
             {{ conversione }}
