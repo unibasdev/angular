@@ -12,10 +12,6 @@ import { ModelloService } from 'src/app/service/modello.service';
 })
 export class ListaStudentiComponent {
 
-  test() {
-    this.modello.putBean(C.CARICAMENTO, true);
-  }
-
   constructor(private modello: ModelloService) {
   }
 
