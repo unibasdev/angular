@@ -10,7 +10,11 @@ import { ModelloService } from 'src/app/service/modello.service';
   templateUrl: './lista-studenti.component.html',
   styleUrls: ['./lista-studenti.component.css']
 })
-export class ListaStudentiComponent  {
+export class ListaStudentiComponent {
+
+  test() {
+    this.modello.putBean(C.CARICAMENTO, true);
+  }
 
   constructor(private modello: ModelloService) {
   }

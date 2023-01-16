@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Studente } from 'src/app/model/studente';
 import { C } from 'src/app/service/c';
 import { ModelloService } from 'src/app/service/modello.service';
@@ -11,15 +10,10 @@ import { ModelloService } from 'src/app/service/modello.service';
 })
 export class StudenteComponent implements OnInit {
 
-  constructor(private modello: ModelloService,
-    private activatedRoute: ActivatedRoute) { }
+  constructor(private modello: ModelloService) { }
 
   ngOnInit(): void {
     console.log('Inizializzo componente con studente ', this.studente.cognome);
-    // this.activatedRoute.data.subscribe(({ studente }) => {
-      // console.log('Cambiato studente', studente);
-    //   this.modello.putBean(C.STUDENTE, studente);
-    // })
   }
 
   get studente(): Studente {

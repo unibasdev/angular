@@ -29,7 +29,8 @@ export class ListaEsamiComponent implements OnInit {
 
   private aggiornaListaEsami(studente: Studente) {
     this.daoStudente.getEsamiStudente(studente.id!)
-      .then(esami => studente.esami = esami)
+      // .then(esami => studente.esami = esami)
+      .then(esami => this.modello.putBean(C.LISTA_ESAMI, esami))
       .catch(errore => this.messaggi.mostraMessaggioErrore('Impossibile leggere gli esami dello studente: ' + errore));
   }
 
@@ -41,6 +42,10 @@ export class ListaEsamiComponent implements OnInit {
 
   get studente(): Studente {
     return this.modello.getBean(C.STUDENTE)!;
+  }
+
+  get listaEsami(): Esame[] {
+    return this.modello.getBean(C.LISTA_ESAMI)!;
   }
 
   eliminaEsame(esame: Esame) {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Studente } from 'src/app/model/studente';
 import { C } from 'src/app/service/c';
 import { DaoStudenteService } from 'src/app/service/dao/dao-studente.service';

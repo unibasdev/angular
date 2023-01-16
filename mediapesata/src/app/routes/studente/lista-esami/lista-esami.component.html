@@ -1,6 +1,6 @@
-<div class="card" *ngIf="studente.esami">
+<div class="card" *ngIf="listaEsami">
   <div class="card-body">
-    <h5 class="card-title">Esami sostenuti: {{studente.esami.length}}</h5>
+    <h5 class="card-title">Esami sostenuti: {{listaEsami.length}}</h5>
     <div class="card-text">
       <table class="table">
         <tr>
@@ -10,7 +10,7 @@
           <th>Crediti</th>
           <th>Data Registrazione</th>
         </tr>
-        <tr *ngFor="let esame of studente.esami">
+        <tr *ngFor="let esame of listaEsami">
           <td>{{esame.insegnamento}}</td>
           <td>{{esame.voto}}</td>
           <td>{{esame.lode}}</td>

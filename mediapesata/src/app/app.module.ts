@@ -10,8 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoadingComponent } from './components/loading/loading.component';
 import { PaginaNonTrovataComponent } from './components/pagina-non-trovata/pagina-non-trovata.component';
 import { EsameEditComponent } from './routes/esame-edit/esame-edit/esame-edit.component';
+import { EsameFormComponent } from './routes/esame-edit/esame-form/esame-form.component';
 import { LoginComponent } from './routes/login/login/login.component';
 import { DettaglioStudenteComponent } from './routes/studente/dettaglio-studente/dettaglio-studente.component';
 import { ListaEsamiComponent } from './routes/studente/lista-esami/lista-esami.component';
@@ -23,17 +25,17 @@ import { InMemoryRepository } from './service/dao/in-memory-repository';
 import { AuthTokenInterceptor } from './service/interceptors/auth-token.interceptor';
 import { ErrorInterceptor } from './service/interceptors/error.interceptor';
 import { LoadingInterceptor } from './service/interceptors/loading.interceptor';
-import { EsameFormComponent } from './routes/esame-edit/esame-form/esame-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    PaginaNonTrovataComponent,
+    LoadingComponent,
     LoginComponent,
     StudentiComponent,
     StudenteComponent,
-    PaginaNonTrovataComponent,
     RicercaStudentiComponent,
     ListaStudentiComponent,
     DettaglioStudenteComponent,

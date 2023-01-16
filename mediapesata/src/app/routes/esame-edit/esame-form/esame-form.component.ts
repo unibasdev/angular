@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Esame } from 'src/app/model/esame';
 import { Studente } from 'src/app/model/studente';
 import { C } from 'src/app/service/c';
@@ -35,7 +35,7 @@ export class EsameFormComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let stringaIdEsameModificare = this.route.snapshot.paramMap.get('idEs');
+    let stringaIdEsameModificare = this.route.snapshot.params['idEs'];
     if (stringaIdEsameModificare) {
       this.idEsameModificare = +stringaIdEsameModificare;
       let esame: Esame = this.modello.getBean(C.ESAME)!;
