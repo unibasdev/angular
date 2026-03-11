@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Partita } from 'src/app/model/partita';
 
 @Component({
@@ -8,5 +8,12 @@ import { Partita } from 'src/app/model/partita';
 })
 export class PartitaComponent {
 
-  @Input() public partita?: Partita;
+  @Input() partita?: Partita;
+  @Output() elimina = new EventEmitter();
+
+
+  eliminaPartita() {
+    this.elimina.emit();
+  }
+
 }

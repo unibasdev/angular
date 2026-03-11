@@ -14,6 +14,10 @@ export class ListaPartiteComponent implements OnInit {
   constructor(private modello: ModelloService,  private daoPartita: DaoPartitaService){}
 
   ngOnInit(): void {
+    this.aggiornaDati();
+  }
+
+  aggiornaDati() {
     this.daoPartita.findAll()
       .then(result => this.modello.putBean(C.PARTITE, result))
       .catch(error => console.error("Errore durante la lettura delle partite"));
@@ -21,6 +25,12 @@ export class ListaPartiteComponent implements OnInit {
 
   get partite(): Partita[] | undefined {
     return this.modello.getBean(C.PARTITE);
+  }
+
+  eliminaPartita(partita: Partita) {
+    console.log("L'utente vuole eliminare la partita", partita);
+    this.daoPartita.remove(partita);
+    this.aggiornaDati();
   }
 
 }

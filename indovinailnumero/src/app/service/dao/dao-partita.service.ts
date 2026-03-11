@@ -20,4 +20,9 @@ export class DaoPartitaService {
     console.log("Salvo la partita ", partita);
     return lastValueFrom(this.httpClient.post<void>(this.BACKEND_URL, partita));
   }
+
+  remove(partita: Partita) {
+    return lastValueFrom(this.httpClient.delete<void>(this.BACKEND_URL + "/" + partita.id!));
+  }
+
 }

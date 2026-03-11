@@ -5,5 +5,5 @@
     <input class="form-control" id="nome" name="nome" formControlName="campoNome" />
     <span class="form-text text-danger" *ngIf="campoNome.invalid && campoNome.touched">Il nome non pu&ograve; essere vuoto</span>
   </div>
-  <button class="btn btn-primary" type="submit" [disabled]="campoNome.invalid">Inizia</button>
+  <button class="btn btn-primary" type="submit" [disabled]="formNome.invalid">Inizia</button>
 </form>
