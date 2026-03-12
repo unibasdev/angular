@@ -66,6 +66,7 @@ export class DaoStudenteService {
             sommaVotiPesati += esame.voto * esame.crediti;
             sommaCrediti += esame.crediti;
           }
+          if (sommaCrediti == 0) return 0.0;
           return (sommaVotiPesati / sommaCrediti) / 30 * 110;
       })));
   }

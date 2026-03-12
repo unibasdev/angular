@@ -24,7 +24,6 @@ export class ListaEsamiComponent implements OnInit {
     let studente: Studente = this.modello.getBean(C.STUDENTE)!;
     console.log('Studente: ', studente)
     this.aggiornaListaEsami(studente);
-    this.aggiornaListaEsami(studente);
   }
 
   private aggiornaListaEsami(studente: Studente) {
@@ -54,7 +53,7 @@ export class ListaEsamiComponent implements OnInit {
         this.aggiornaListaEsami(this.studente);
         this.aggiornaMediaPesata(this.studente);
       })
-      .catch(errore => this.messaggi.mostraMessaggioInformazioni('Impossibile eliminare l\'esame: ' + errore))
+      .catch(errore => this.messaggi.mostraMessaggioErrore('Impossibile eliminare l\'esame: ' + errore))
   }
 
 }

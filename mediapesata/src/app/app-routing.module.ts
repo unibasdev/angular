@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: '', redirectTo: '/studenti', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'studenti', component: StudentiComponent, canActivate: [AuthGuard] },
-  { path: 'studenti/new', component: StudenteComponent, canActivate: [AuthGuard] },
   {
     path: 'studenti/:idSt', component: StudenteComponent, canActivate: [AuthGuard],
     resolve: { studente: StudenteResolver }
