@@ -30,6 +30,7 @@ export class RicercaStudentiComponent implements OnInit {
     this.formRicerca.get('nome')!.setValue(this.route.snapshot.queryParams['nome']);
     this.formRicerca.get('annoIscrizione')!.setValue(this.route.snapshot.queryParams['annoIscrizione']);
     this.modello.removeBean(C.LISTA_STUDENTI); //Per evitare che navigando tramite 'Home' si visualizzino dati disallineati
+    this.ricercaStudenti();
   }
 
   ricercaStudenti(): void {
